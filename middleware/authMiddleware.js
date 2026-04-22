@@ -34,3 +34,5 @@ module.exports= async(req,res,next) =>{
         });
     }
 };
+
+// path: middleware/authMiddleware.js
