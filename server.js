@@ -24,9 +24,9 @@ app.use(express.json());
 const PORT=process.env.PORT || 8080;
 
 //rout
-app.use('/api/v1/test',require('./routs/testRout'));
-app.use('/api/v1/auth',require('./routs/authRoutes'));
-app.use('/api/v1/user',require('./routs/userRoutes'));
+app.use('/api/v1/test',require('./routes/testRoutes'));
+app.use('/api/v1/auth',require('./routes/authRoutes'));
+app.use('/api/v1/user',require('./routes/userRoutes'));
 
 app.get("/",(req,res)=>{
     return res.status(200).send("<h1>Welcome to Express.js</h1>");

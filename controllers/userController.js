@@ -1,69 +1,69 @@
-//GET USER INFGO
-const userModel = require('../models/userModel');
+const userModel = require("../models/userModel");
+const bcrypt = require("bcryptjs");
 
+// GET USER INFO
 const getUserController = async (req, res) => {
-  try{
-    //find user
-    const user = await userModel.findById(req.body.id);
+  try {
+    // find user
+    const user = await userModel.findById({ _id: req.body.id });
     //validation
-    if(!user){
-        return res.status(404).send({
-            success: false,
-            message: "User not found"
-        });
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        message: "User Not Found",
+      });
     }
-    //hide password
-    user.password=undefined;
+    //hinde password
+    user.password = undefined;
     //resp
     res.status(200).send({
-        success: true,
-        message: "User data retrieved successfully",
-        user
+      success: true,
+      message: "User get Successfully",
+      user,
     });
-  } catch(error){
+  } catch (error) {
     console.log(error);
     res.status(500).send({
-        success: false,
-        message: "Error in get user API",
-        error
-    })
+      success: false,
+      message: "Eror in Get User API",
+      error,
+    });
   }
 };
 
-//UPDATE USER
-const updateUserController=async(req,res)=>{
-  try{
-    //find user
-    const user=await userModel.findById({_id: req.body.id});
+// UPDATE USER
+const updateUserController = async (req, res) => {
+  try {
+    // find user
+    const user = await userModel.findById({ _id: req.body.id });
     //validation
-    if(!user){
-        return res.status(404).send({
-            success: false,
-            message: "User not found"
-        });
+    if (!user) {
+      return res.status(404).send({
+        success: false,
+        message: "user not found",
+      });
     }
-    //update user
-    const {userName,address,phone}=req.body;
-    if(userName) user.userName=userName;
-    if(address) user.address=address;
-    if(phone) user.phone=phone;
+    //update
+    const { userName, address, phone } = req.body;
+    if (userName) user.userName = userName;
+    if (address) user.address = address;
+    if (phone) user.phone = phone;
+    //save user
     await user.save();
-    //resp
     res.status(200).send({
-        success: true,
-        message: "User updated successfully",
-        updatedUser: user
+      success: true,
+      message: "USer Updated SUccessfully",
+    });
+  } catch (error) {
+    console.log(erorr);
+    res.status(500).send({
+      success: false,
+      message: "Error In Udpate Userr API",
+      error,
     });
   }
-  catch(error){
-    console.log(error);
-    res.status(500).send({
-        success: false,
-        message: "Error in update user API",
-        error
-    })
-  }
-}
+};
+
 // UPDATE USER PASSWORD
 const updatePasswordController = async (req, res) => {
   try {
@@ -135,7 +135,7 @@ const resetPasswordController = async (req, res) => {
     await user.save();
     res.status(200).send({
       success: true,
-      message: "Password Reset SUccessfully",
+      message: "Password Reset Successfully",
     });
   } catch (error) {
     console.log(error);
@@ -147,4 +147,30 @@ const resetPasswordController = async (req, res) => {
   }
 };
 
-module.exports={ getUserController, updateUserController, updatePasswordController, resetPasswordController };
+//DELETE PROFILE ACCOUNT
+const deleteProfileController = async (req, res) => {
+  try {
+    await userModel.findByIdAndDelete( req.body.id );
+    return res.status(200).send({
+      success: true,
+      message: "Profile Deleted Successfully",
+    });
+  } 
+  catch (error) {
+    console.log(error);
+    res.status(500).send({
+      success: false,
+      message: "Error In Delete Profile API",
+      error,
+    });
+  }
+}
+ 
+
+module.exports = {
+  getUserController,
+  updateUserController,
+  updatePasswordController,
+  resetPasswordController,
+  deleteProfileController,
+};
