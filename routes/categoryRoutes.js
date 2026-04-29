@@ -14,11 +14,13 @@ const router = express.Router();
 //routes
 //CREATE CATEGORY
 router.post('/create',authMiddleware,createCategoryController);
+//GET ALL CATEGORY
+router.get("/getAll", getAllCategoryController);
 
-// UPDATE CAT
+// UPDATE CATEGORY
 router.put("/update/:id", authMiddleware, updateCategoryController);
 
-// DLEETE CAT
+// DELETE CATEGORY
 router.delete("/delete/:id", authMiddleware, deleteCategoryController);
 
 module.exports = router;

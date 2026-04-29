@@ -80,7 +80,7 @@ const updateCategoryController = async (req, res) => {
     console.log(error);
     res.status(500).send({
       success: false,
-      message: "error in update cat api",
+      message: "error in update category API",
       error,
     });
   }
@@ -106,7 +106,7 @@ const deleteCategoryController = async (req, res) => {
     await categoryModel.findByIdAndDelete(id);
     res.status(200).send({
       success: true,
-      message: "category Deleted succssfully",
+      message: "Category Deleted successfully",
     });
   } catch (error) {
     console.log(error);
