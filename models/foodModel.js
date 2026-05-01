@@ -6,7 +6,7 @@ const foodSchema=new mongoose.Schema({
         type:String,
         required:[true,"food title is required"],
     },
-    descriptio:{
+    description:{
         type:String,
         required:[true,"food description is required"],
     },   
