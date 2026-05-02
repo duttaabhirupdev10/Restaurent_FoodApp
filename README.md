@@ -91,7 +91,7 @@ restaurant-food-app/
 
 ### Installation
 
-\`\`\`bash
+in gitbash
 # Clone the repository
 git clone <your-repo-url>
 
@@ -104,7 +104,7 @@ npm install
 
 ### Run the App
 
-\`\`\`bash
+run in gitbash
 # Development (with nodemon)
 npm run server
 
