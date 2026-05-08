@@ -1,92 +1,130 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <svg width="1200" height="900" viewBox="0 0 1200 900" xmlns="http://www.w3.org/2000/svg">
   <style>
-    .title { font: bold 26px Arial; fill: #1f2937; }
-    .subtitle { font: 16px Arial; fill: #334155; }
-    .box { fill: #f8fafc; stroke: #334155; stroke-width: 2; rx: 12; ry: 12; }
-    .box-alt { fill: #eff6ff; stroke: #2563eb; stroke-width: 2; rx: 12; ry: 12; }
+    .title { font: bold 32px Arial; fill: #111827; }
+    .subtitle { font: 18px Arial; fill: #1e293b; }
+    .box { fill: #ffffff; stroke: #1e40af; stroke-width: 2; rx: 16; ry: 16; }
+    .box-alt { fill: #eef2ff; stroke: #2563eb; stroke-width: 2; rx: 16; ry: 16; }
     .text { font: 16px Arial; fill: #0f172a; }
     .small { font: 14px Arial; fill: #475569; }
-    .arrow { stroke: #334155; stroke-width: 2; marker-end: url(#arrowhead); }
+    .arrow { stroke: #1e293b; stroke-width: 2.5; marker-end: url(#arrowhead); }
+    .shadow { filter: url(#shadow); }
   </style>
   <defs>
-    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" fill="#334155">
+    <filter id="shadow" x="-20%" y="-20%" width="140%" height="140%">
+      <feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#0f172a" flood-opacity="0.12" />
+    </filter>
+    <marker id="arrowhead" markerWidth="10" markerHeight="8" refX="10" refY="4" orient="auto" fill="#1e293b">
       <path d="M0,0 L10,4 L0,8 Z" />
     </marker>
   </defs>
-  <rect x="0" y="0" width="1200" height="900" fill="#eef2ff" />
+  <defs>
+    <linearGradient id="bgGradient" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#dbeafe" />
+      <stop offset="100%" stop-color="#eef2ff" />
+    </linearGradient>
+  </defs>
+  <rect x="0" y="0" width="1200" height="900" fill="url(#bgGradient)" />
   <text x="40" y="50" class="title">Restaurant Food App - High Level Design</text>
   <text x="40" y="80" class="subtitle">Backend architecture for Node.js, Express, MongoDB, and REST API flows</text>
 
-  <rect x="60" y="120" width="240" height="120" class="box" />
-  <text x="80" y="155" class="text">Client / Frontend</text>
-  <text x="80" y="180" class="small">Web / Mobile / Postman</text>
-  <text x="80" y="200" class="small">HTTP Requests</text>
+  <text x="90" y="120" class="small" fill="#1e3a8a">Step 1</text>
+  <rect x="60" y="130" width="240" height="120" class="box shadow" />
+  <text x="80" y="165" class="text">Client / Frontend</text>
+  <text x="80" y="190" class="small">Web / Mobile / Postman</text>
+  <text x="80" y="210" class="small">HTTP Requests</text>
 
-  <rect x="360" y="100" width="260" height="160" class="box-alt" />
-  <text x="390" y="145" class="text">Express Server</text>
-  <text x="390" y="170" class="small">server.js</text>
-  <text x="390" y="190" class="small">dotenv, cors, morgan, JSON parser</text>
+  <text x="390" y="120" class="small" fill="#1e3a8a">Step 2</text>
+  <rect x="360" y="130" width="260" height="120" class="box-alt shadow" />
+  <text x="390" y="165" class="text">Express Server</text>
+  <text x="390" y="190" class="small">server.js</text>
+  <text x="390" y="210" class="small">dotenv, cors, morgan, JSON parser</text>
 
-  <rect x="760" y="80" width="340" height="200" class="box" />
-  <text x="780" y="125" class="text">API Routes</text>
-  <text x="780" y="150" class="small">/api/v1/auth</text>
-  <text x="780" y="170" class="small">/api/v1/user</text>
-  <text x="780" y="190" class="small">/api/v1/restaurant</text>
-  <text x="780" y="210" class="small">/api/v1/category</text>
-  <text x="780" y="230" class="small">/api/v1/food</text>
+  <text x="840" y="120" class="small" fill="#1e3a8a">Step 3</text>
+  <rect x="760" y="130" width="340" height="120" class="box shadow" />
+  <text x="780" y="165" class="text">API Routes</text>
+  <text x="780" y="190" class="small">/api/v1/auth</text>
+  <text x="780" y="210" class="small">/api/v1/user</text>
+  <text x="780" y="230" class="small">/api/v1/restaurant</text>
+  <text x="780" y="250" class="small">/api/v1/category</text>
+  <text x="780" y="270" class="small">/api/v1/food</text>
 
-  <rect x="360" y="320" width="340" height="200" class="box-alt" />
-  <text x="390" y="365" class="text">Controllers</text>
-  <text x="390" y="390" class="small">authController.js</text>
-  <text x="390" y="410" class="small">userController.js</text>
-  <text x="390" y="430" class="small">restaurantController.js</text>
-  <text x="390" y="450" class="small">categoryController.js</text>
-  <text x="390" y="470" class="small">foodController.js</text>
+  <path d="M300 190 H360" class="arrow" />
+  <path d="M620 190 H760" class="arrow" />
+  <path d="M760 250 V370 H700" class="arrow" />
+  <path d="M700 460 H760" class="arrow" />
+  <path d="M760 550 V600 H300" class="arrow" />
+  <path d="M300 700 H360" class="arrow" />
+  <text x="440" y="205" class="small">Front-end → Server</text>
+  <text x="660" y="205" class="small">Server → Routes</text>
+  <text x="620" y="330" class="small">Routes → Controllers</text>
+  <text x="720" y="445" class="small">Controllers → Business Logic</text>
+  <text x="520" y="620" class="small">Business Logic → Data Models</text>
+  <text x="330" y="710" class="small">Data Models → Database</text>
 
-  <rect x="760" y="340" width="340" height="220" class="box" />
-  <text x="780" y="385" class="text">Business Logic</text>
-  <text x="780" y="410" class="small">Authentication, Authorization</text>
-  <text x="780" y="430" class="small">Validation, CRUD operations</text>
-  <text x="780" y="450" class="small">Order processing</text>
-  <text x="780" y="470" class="small">Role-based admin checks</text>
+  <text x="90" y="360" class="small" fill="#1e3a8a">Step 4</text>
+  <rect x="60" y="370" width="240" height="180" class="box-alt shadow" />
+  <text x="80" y="405" class="text">Middleware</text>
+  <text x="80" y="430" class="small">authMiddleware.js</text>
+  <text x="80" y="450" class="small">adminMiddleware.js</text>
+  <text x="80" y="470" class="small">JWT validation</text>
+  <text x="80" y="490" class="small">Token auth and role guard</text>
 
-  <rect x="60" y="520" width="240" height="220" class="box-alt" />
-  <text x="80" y="555" class="text">Middleware</text>
-  <text x="80" y="580" class="small">authMiddleware.js</text>
-  <text x="80" y="600" class="small">adminMiddleware.js</text>
-  <text x="80" y="620" class="small">JWT validation</text>
-  <text x="80" y="640" class="small">Token auth and role guard</text>
+  <text x="420" y="360" class="small" fill="#1e3a8a">Step 5</text>
+  <rect x="360" y="370" width="340" height="180" class="box shadow" />
+  <text x="390" y="405" class="text">Controllers</text>
+  <text x="390" y="430" class="small">authController.js</text>
+  <text x="390" y="450" class="small">userController.js</text>
+  <text x="390" y="470" class="small">restaurantController.js</text>
+  <text x="390" y="490" class="small">categoryController.js</text>
+  <text x="390" y="510" class="small">foodController.js</text>
 
-  <rect x="360" y="560" width="340" height="180" class="box" />
-  <text x="390" y="595" class="text">Data Models</text>
-  <text x="390" y="620" class="small">userModel.js</text>
-  <text x="390" y="640" class="small">restaurantModel.js</text>
-  <text x="390" y="660" class="small">categoryModel.js</text>
-  <text x="390" y="680" class="small">foodModel.js</text>
-  <text x="390" y="700" class="small">orderModel.js</text>
+  <text x="840" y="360" class="small" fill="#1e3a8a">Step 6</text>
+  <rect x="760" y="370" width="340" height="180" class="box-alt shadow" />
+  <text x="780" y="405" class="text">Business Logic</text>
+  <text x="780" y="430" class="small">Authentication, Authorization</text>
+  <text x="780" y="450" class="small">Validation, CRUD operations</text>
+  <text x="780" y="470" class="small">Order processing</text>
+  <text x="780" y="490" class="small">Role-based admin checks</text>
 
-  <rect x="760" y="560" width="340" height="180" class="box-alt" />
-  <text x="780" y="595" class="text">MongoDB Database</text>
-  <text x="780" y="620" class="small">Connected via Mongoose</text>
-  <text x="780" y="645" class="small">config/db.js</text>
-  <text x="780" y="670" class="small">Stores users, restaurants,</text>
-  <text x="780" y="690" class="small">categories, foods, orders</text>
+  <path d="M900 280 V370 H700" class="arrow" />
+  <path d="M700 460 H760" class="arrow" />
 
-  <rect x="60" y="780" width="1040" height="80" class="box" />
-  <text x="80" y="820" class="text">Environment + Security</text>
-  <text x="80" y="845" class="small">.env (PORT, MONGO_URL, JWT_SECRET)</text>
-  <text x="80" y="865" class="small">Bcrypt hashing, JWT token generation</text>
+  <text x="760" y="330" class="small">Route → Controller</text>
+  <text x="720" y="475" class="small">Controller → Business Logic</text>
 
-  <line x1="300" y1="180" x2="360" y2="180" class="arrow" />
-  <line x1="620" y1="140" x2="760" y2="140" class="arrow" />
-  <line x1="620" y1="190" x2="760" y2="190" class="arrow" />
-  <line x1="530" y1="420" x2="760" y2="420" class="arrow" />
-  <line x1="530" y1="620" x2="760" y2="620" class="arrow" />
-  <line x1="525" y1="430" x2="525" y2="560" class="arrow" />
-  <line x1="525" y1="820" x2="525" y2="740" class="arrow" />
-  <text x="470" y="540" class="small">Route -> Controller</text>
-  <text x="450" y="745" class="small">Controllers -> Models</text>
-  <text x="890" y="540" class="small">Models -> DB</text>
-  <text x="500" y="820" class="small">Environment config loaded at startup</text>
+  <text x="220" y="590" class="small" fill="#1e3a8a">Step 7</text>
+  <rect x="60" y="600" width="240" height="180" class="box shadow" />
+  <text x="80" y="635" class="text">Data Models</text>
+  <text x="80" y="660" class="small">userModel.js</text>
+  <text x="80" y="680" class="small">restaurantModel.js</text>
+  <text x="80" y="700" class="small">categoryModel.js</text>
+  <text x="80" y="720" class="small">foodModel.js</text>
+  <text x="80" y="740" class="small">orderModel.js</text>
+
+  <text x="520" y="590" class="small" fill="#1e3a8a">Step 8</text>
+  <rect x="360" y="600" width="340" height="180" class="box-alt shadow" />
+  <text x="390" y="635" class="text">MongoDB Database</text>
+  <text x="390" y="660" class="small">Connected via Mongoose</text>
+  <text x="390" y="685" class="small">config/db.js</text>
+  <text x="390" y="705" class="small">Stores users, restaurants,</text>
+  <text x="390" y="725" class="small">categories, foods, orders</text>
+
+  <path d="M530 560 V600" class="arrow" />
+  <path d="M530 600 H400" class="arrow" />
+
+  <path d="M880 560 V600" class="arrow" />
+  <path d="M880 600 H760" class="arrow" />
+
+  <text x="430" y="560" class="small">Business Logic → DB</text>
+
+  <text x="420" y="820" class="small" fill="#1e3a8a">Step 9</text>
+  <rect x="60" y="820" width="1040" height="60" class="box shadow" />
+  <text x="80" y="850" class="text">Environment + Security</text>
+  <text x="80" y="875" class="small">.env (PORT, MONGO_URL, JWT_SECRET)</text>
+  <text x="80" y="895" class="small">Bcrypt hashing, JWT token generation</text>
+
+  <path d="M660 760 V820" class="arrow" />
+  <path d="M660 820 H180" class="arrow" />
+  <text x="430" y="760" class="small">Runtime config loaded</text>
 </svg>
