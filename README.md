@@ -108,9 +108,6 @@ run in gitbash
 # Development (with nodemon)
 npm run server
 
-# Production
-node server.js
-\`\`\`
 
 Server runs at: **http://localhost:8080**
 
@@ -206,13 +203,6 @@ ISC License - © 2026 Abhirup Dutta
 # Test server
 curl http://localhost:8080
 
-# Register user
-curl -X POST http://localhost:8080/api/v1/auth/register \\
-  -H "Content-Type: application/json" \\
-  -d '{"userName":"john","email":"john@example.com","password":"123456","phone":"1234567890","address":"NYC","answer":"admin"}'
-\`\`\`
-
----
 
 **Happy Coding!** 🎉
 "@
