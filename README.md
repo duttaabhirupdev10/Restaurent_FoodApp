@@ -1,4 +1,3 @@
-Set-Content -Path "c:\Users\DELL\OneDrive\Desktop\Restaurent_FoodApp\README.md" -Value @"
 # 🍔 Restaurant Food App - Backend API
 
 A full-featured restaurant management backend API built with Node.js, Express, and MongoDB.
@@ -201,8 +200,6 @@ ISC License - © 2026 Abhirup Dutta
 
 \`\`\`bash
 # Test server
-curl http://localhost:8080
+ http://localhost:8080
 
 
-**Happy Coding!** 🎉
-"@
